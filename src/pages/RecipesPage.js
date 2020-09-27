@@ -54,7 +54,7 @@ function RecipesPage() {
 
   return (
     <div style={{ backgroundColor: "beige" }}>
-      <h1>Your Recipes</h1>
+      <h1 style={{ margin: 0, padding: 20 }}>Your Recipes</h1>
       <div style={{ display: "flex" }}>
         {recipe.map((value, index) => {
           return <Recipe recipe={value} key={index} />;
