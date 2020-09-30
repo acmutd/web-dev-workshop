@@ -1,5 +1,6 @@
 import React from "react";
 import Recipe from "../components/Recipe";
+import { Link } from "react-router-dom";
 
 function RecipesPage() {
   const recipe = [
@@ -55,6 +56,9 @@ function RecipesPage() {
   return (
     <div style={{ backgroundColor: "beige" }}>
       <h1 style={{ margin: 0, padding: 20 }}>Your Recipes</h1>
+      <Link to="/add" style={{ padding: 20 }}>
+        Add a Recipe Here
+      </Link>
       <div style={{ display: "flex" }}>
         {recipe.map((value, index) => {
           return <Recipe recipe={value} key={index} />;

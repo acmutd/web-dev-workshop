@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function AddRecipe() {
   let [recipeName, setRecipeName] = useState("");
@@ -17,9 +17,9 @@ function AddRecipe() {
   }
 
   return (
-    <div style={{ backgroundColor: "beige", height: "100%" }}>
+    <div style={{ height: "100%", background: "beige" }}>
       <h1 style={{ margin: 0, padding: 20 }}>Add a Recipe</h1>
-      <div>
+      <div style={{ textAlign: "center" }}>
         <p>Enter Recipe Name</p>
         <input
           type="text"
@@ -28,22 +28,25 @@ function AddRecipe() {
         />
         <p>Enter Link to Image</p>
         <input
-          type="text"
+          type="url"
           value={image}
           onChange={(event) => setImage(event.target.value)}
         />
-        <p>Enter Ingredients (sepearted by commas)</p>
-        <input
-          type="text"
+        <p>Enter Ingredients (seperated by commas)</p>
+        <textarea
+          cols="60"
+          rows="10"
           value={ingredients}
           onChange={(event) => setIngredients(event.target.value)}
         />
-        <p>Enter Recipe (sepearted by periods)</p>
-        <input
-          type="text"
+        <p>Enter Recipe (seperated by periods)</p>
+        <textarea
+          cols="60"
+          rows="10"
           value={recipeSteps}
           onChange={(event) => setRecipeSteps(event.target.value)}
         />
+        <br />
         <button onClick={saveRecipe}>Save Recipe</button>
       </div>
     </div>
