@@ -1,9 +1,26 @@
 import React from "react";
-import logo from "./logo.svg";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 import RecipesPage from "./pages/RecipesPage";
 
 function App() {
-  return <RecipesPage />;
+  return (
+    <div>
+      <Router>
+        <main>
+          <Switch>
+            <Route path="/" exact component={RecipesPage} />
+            {/* <Route path="/add" exact component={AddRecipe} /> */}
+            <Redirect to="/" />
+          </Switch>
+        </main>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
