@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 function RecipesPage() {
   let [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function fetchData() {
+      let recipeArray = [];
+      setRecipes(recipeArray);
+    }
+    fetchData();
+  }, []);
 
   const recipe = [
     {
