@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Recipe from "../components/Recipe";
 import { Link } from "react-router-dom";
+import db from "../components/db";
 
 function RecipesPage() {
+  let [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      let recipeArray = [];
+      await db
+        .collection("recipe")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            recipeArray.push(doc.data().recipe);
+          });
+        });
+      console.log(recipeArray);
+      setRecipes(recipeArray);
+    }
+    fetchData();
+  }, []);
+
   const recipe = [
     {
       title: "Chocolate Cake",
