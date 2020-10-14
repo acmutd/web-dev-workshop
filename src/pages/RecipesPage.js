@@ -80,6 +80,11 @@ function RecipesPage() {
         Add a Recipe Here
       </Link>
       <div style={{ display: "flex" }}>
+        {recipes.map((value, index) => {
+          return <Recipe recipe={value} key={index} />;
+        })}
+      </div>
+      <div style={{ display: "flex" }}>
         {recipe.map((value, index) => {
           return <Recipe recipe={value} key={index} />;
         })}
