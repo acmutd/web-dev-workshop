@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import db from "../components/db";
 
 function AddRecipe() {
   let [recipeName, setRecipeName] = useState("");
@@ -14,6 +15,17 @@ function AddRecipe() {
       recipe: recipeSteps.split("."),
     };
     console.log(recipe);
+
+    db.collection("recipe")
+      .add({
+        recipe: recipe,
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
   }
 
   return (
