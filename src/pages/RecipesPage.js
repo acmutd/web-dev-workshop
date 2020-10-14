@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Recipe from "../components/Recipe";
 import { Link } from "react-router-dom";
 
 function RecipesPage() {
+  let [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {}, []);
+
   const recipe = [
     {
       title: "Chocolate Cake",
@@ -59,6 +63,11 @@ function RecipesPage() {
       <Link to="/add" style={{ padding: 20 }}>
         Add a Recipe Here
       </Link>
+      <div style={{ display: "flex" }}>
+        {recipes.map((value, index) => {
+          return <Recipe recipe={value} key={index} />;
+        })}
+      </div>
       <div style={{ display: "flex" }}>
         {recipe.map((value, index) => {
           return <Recipe recipe={value} key={index} />;
